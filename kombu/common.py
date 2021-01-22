@@ -245,7 +245,7 @@ def _ignore_errors(conn):
     try:
         yield
     except conn.connection_errors + conn.channel_errors:
-        pass
+        logger.exception("Ignored connection error!")
 
 
 def ignore_errors(conn, fun=None, *args, **kwargs):
